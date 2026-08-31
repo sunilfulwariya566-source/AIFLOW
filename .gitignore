@@ -1,0 +1,30 @@
+# virtualenv
+.venv/
+venv/
+env/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# runtime data — never commit the database
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# secrets
+.env
+*.key
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# scratch
+*.log
+/tmp/

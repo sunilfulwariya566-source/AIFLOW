@@ -1,0 +1,21 @@
+services:
+  aiflow:
+    build: .
+    image: aiflow:latest
+    container_name: aiflow
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      # SQLite DB persists on the host — container rebuild se data nahi jaata
+      - ./data:/app/data
+    environment:
+      AIFLOW_AUTH: "${AIFLOW_AUTH:-1}"
+      AIFLOW_WEBHOOK_SECRET: "${AIFLOW_WEBHOOK_SECRET:-dev-webhook-secret}"
+      AIFLOW_RATE_LIMIT: "${AIFLOW_RATE_LIMIT:-120}"
+      # optional — .env file me daalo to yahan aa jayenge
+      OPENAI_API_KEY: "${OPENAI_API_KEY:-}"
+      OPENAI_BASE_URL: "${OPENAI_BASE_URL:-}"
+      OPENAI_MODEL: "${OPENAI_MODEL:-}"
+      ANTHROPIC_API_KEY: "${ANTHROPIC_API_KEY:-}"
+      GEMINI_API_KEY: "${GEMINI_API_KEY:-}"
+    restart: unless-stopped

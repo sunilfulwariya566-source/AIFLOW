@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+data/
+.env
+.git/
+*.md
+test_*.py
+test_*.sh
+test_*.js
+run.sh
+run.bat
